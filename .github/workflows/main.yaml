@@ -1,0 +1,18 @@
+name: Pararel Autoblog Workflow
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 18 * * *'
+  
+
+jobs:
+  main-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Eksekusi aksi pararel autoblog
+        run: |
+          curl -X GET "https://blogkeren.web.id/create_repo.php?user_id=1&api_key=BKKUwFNLPY04&start=1" 
